@@ -1,39 +1,49 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './CreateProfile.css'
 
-const points = [
-  'A plan built around your exam',
-  'Answers from your own textbooks',
-  'Weak topics found early',
-]
-
 function CreateProfile() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirm: '',
-    agree: false,
-  })
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirm, setConfirm] = useState('')
+  const [agree, setAgree] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirm, setShowConfirm] = useState(false)
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target
-    setForm((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
+  // password field type and button text
+  let passwordType = 'password'
+  let passwordBtn = 'Show'
+  if (showPassword === true) {
+    passwordType = 'text'
+    passwordBtn = 'Hide'
   }
 
-  const handleSubmit = (e) => {
+  // confirm password field type and button text
+  let confirmType = 'password'
+  let confirmBtn = 'Show'
+  if (showConfirm === true) {
+    confirmType = 'text'
+    confirmBtn = 'Hide'
+  }
+
+  function handleSubmit(e) {
     e.preventDefault()
+
+    if (password !== confirm) {
+      alert('Passwords do not match')
+      return
+    }
+
     // TODO: connect to your signup API
-    console.log(form)
+    console.log(name, email, password)
   }
 
   return (
     <div className="main_div">
       <div className="div_one">
         <div className="logo_div">
-          <span className="logo_dot" />
+          <span className="logo_dot"></span>
           <p>Taleem AI</p>
         </div>
 
@@ -44,9 +54,9 @@ function CreateProfile() {
             account.
           </h2>
           <ul>
-            {points.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
+            <li>A plan built around your exam</li>
+            <li>Answers from your own textbooks</li>
+            <li>Weak topics found early</li>
           </ul>
           <small>Built for Sindh Board, Punjab Board, O/A-Levels, MDCAT and ECAT.</small>
         </div>
@@ -62,22 +72,20 @@ function CreateProfile() {
           <label htmlFor="name">Full name</label>
           <input
             id="name"
-            name="name"
             type="text"
             placeholder="Enter Your Name"
-            value={form.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
 
           <label htmlFor="email">Email</label>
           <input
             id="email"
-            name="email"
             type="email"
-            placeholder="name@example.com"
-            value={form.email}
-            onChange={handleChange}
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
 
@@ -85,48 +93,43 @@ function CreateProfile() {
           <div className="pass_wrap">
             <input
               id="password"
-              name="password"
-              type={showPassword ? 'text' : 'password'}
-              placeholder="••••••••"
-              value={form.password}
-              onChange={handleChange}
+              type={passwordType}
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               minLength={8}
               required
             />
-            <button type="button" onClick={() => setShowPassword((s) => !s)}>
-              {showPassword ? 'Hide' : 'Show'}
+            <button type="button" onClick={() => setShowPassword(!showPassword)}>
+              {passwordBtn}
             </button>
           </div>
           <span className="hint">Use at least 8 characters.</span>
 
-          <label htmlFor="confirm" className="confirm_label">
-            Confirm password
-          </label>
+          <label htmlFor="confirm">Confirm password</label>
           <div className="pass_wrap">
             <input
               id="confirm"
-              name="confirm"
-              type={showConfirm ? 'text' : 'password'}
-              placeholder="••••••••"
-              value={form.confirm}
-              onChange={handleChange}
+              type={confirmType}
+              placeholder="Enter your password"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
               minLength={8}
               required
             />
-            <button type="button" onClick={() => setShowConfirm((s) => !s)}>
-              {showConfirm ? 'Hide' : 'Show'}
+            <button type="button" onClick={() => setShowConfirm(!showConfirm)}>
+              {confirmBtn}
             </button>
           </div>
 
           <label className="check_row">
             <input
               type="checkbox"
-              name="agree"
-              checked={form.agree}
-              onChange={handleChange}
+              checked={agree}
+              onChange={(e) => setAgree(e.target.checked)}
               required
             />
-            <span className="check_box" aria-hidden="true">✓</span>
+            <span className="check_box">✓</span>
             <span>I agree to the terms and privacy policy</span>
           </label>
 
@@ -135,7 +138,7 @@ function CreateProfile() {
           </button>
 
           <p className="login_row">
-            Already have an account? <a href="/login">Log in</a>
+            Already have an account? <Link to="/login">Log in</Link>
           </p>
         </form>
       </div>

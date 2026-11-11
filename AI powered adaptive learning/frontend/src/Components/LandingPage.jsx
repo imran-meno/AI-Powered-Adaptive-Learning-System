@@ -55,7 +55,7 @@ function LandingPage() {
               Log in
             </Link>
 
-            <Link to="/createprofile" className="lp-btn lp-btn-lime lp-btn-sm">
+            <Link to="/signup" className="lp-btn lp-btn-lime lp-btn-sm">
               Sign up
             </Link>
           </nav>
@@ -78,7 +78,7 @@ function LandingPage() {
 
             <div className="lp-cta">
 
-              <Link to="/createprofile" className="lp-btn lp-btn-lime">
+              <Link to="/signup" className="lp-btn lp-btn-lime">
                 Create free account
               </Link>
 
