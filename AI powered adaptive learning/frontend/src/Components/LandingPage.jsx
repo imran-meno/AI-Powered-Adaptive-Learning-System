@@ -1,4 +1,5 @@
 import './LandingPage.css'
+import { Link } from 'react-router-dom'
 
 const steps = [
   {
@@ -39,49 +40,63 @@ function LandingPage() {
     <div className="lp">
       <section className="lp-hero">
         <header className="lp-nav">
-          <a href="/" className="lp-logo">
+
+          <Link to="/" className="lp-logo">
             <span className="lp-logo-dot" />
             Taleem AI
-          </a>
+          </Link>
+
           <nav className="lp-nav-links">
             <a href="#how-it-works">How it works</a>
             <a href="#boards">Boards</a>
             <a href="#assistant">Study assistant</a>
-            <a href="/login" className="lp-btn lp-btn-outline lp-btn-sm">
+
+            <Link to="/login" className="lp-btn lp-btn-outline lp-btn-sm">
               Log in
-            </a>
-            <a href="/signup" className="lp-btn lp-btn-lime lp-btn-sm">
+            </Link>
+
+            <Link to="/createprofile" className="lp-btn lp-btn-lime lp-btn-sm">
               Sign up
-            </a>
+            </Link>
           </nav>
         </header>
 
         <div className="lp-hero-body">
           <div className="lp-hero-text">
+
             <h1 className="lp-title">
               Don’t just study harder.
-              <span className="lp-title-accent">Study where it counts.</span>
+              <span className="lp-title-accent">
+                Study where it counts.
+              </span>
             </h1>
+
             <p className="lp-sub">
               Taleem AI learns which topics are costing you marks, answers from
               your own board textbooks, and plans every revision day for you.
             </p>
+
             <div className="lp-cta">
-              <a href="/signup" className="lp-btn lp-btn-lime">
+
+              <Link to="/createprofile" className="lp-btn lp-btn-lime">
                 Create free account
-              </a>
-              <a href="/login" className="lp-btn lp-btn-outline">
+              </Link>
+
+              <Link to="/login" className="lp-btn lp-btn-outline">
                 Log in
-              </a>
+              </Link>
+
             </div>
           </div>
 
           <aside className="lp-steps" id="how-it-works">
             <h2>Your path in three steps</h2>
+
             <ol>
               {steps.map((s, i) => (
                 <li key={s.title}>
                   <span className="lp-step-num">{i + 1}</span>
+
                   <div>
                     <h3>{s.title}</h3>
                     <p>{s.text}</p>
@@ -95,6 +110,7 @@ function LandingPage() {
 
       <section className="lp-features" id="assistant">
         <h2>Everything adapts to your exam.</h2>
+
         <div className="lp-feature-grid">
           {features.map((f) => (
             <article key={f.title} className="lp-card">
