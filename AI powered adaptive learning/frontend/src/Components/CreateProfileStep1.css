@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap');
+
+.step1_main {
+  --lime: #c6f432;
+  --black: #0a0a0a;
+  --line: #e3e3df;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--black);
+}
+
+.step1_main *,
+.step1_main *::before,
+.step1_main *::after {
+  box-sizing: border-box;
+}
+
+.step1_main h1,
+.step1_main h2,
+.step1_main h3,
+.step1_main p,
+.step1_main ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Left panel ---------- */
+.step1_left {
+  background-color: var(--black);
+  color: #fff;
+  width: 30%;
+  min-height: 100vh;
+  padding: 32px 30px;
+}
+
+.step1_logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step1_dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+
+.step1_logo p {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.step1_left h2 {
+  margin-top: 22px;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.step1_steps {
+  list-style: none;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step1_steps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: #b5b5b5;
+}
+
+.step1_steps li span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.2px solid #8a8a8a;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step1_steps .step1_step_active {
+  color: #fff;
+  font-weight: 700;
+}
+
+.step1_steps .step1_step_active span {
+  background: #fff;
+  border-color: #fff;
+  color: var(--black);
+}
+
+/* ---------- Right panel ---------- */
+.step1_right {
+  width: 70%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+.step1_content {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Progress bar */
+.step1_progress {
+  display: flex;
+  gap: 4px;
+}
+
+.step1_bar {
+  width: 41px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.step1_bar_done {
+  background: var(--black);
+}
+
+.step1_count {
+  margin-top: 12px;
+  font-size: 9px;
+  font-weight: 500;
+  color: #555;
+}
+
+.step1_content h1 {
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.step1_sub {
+  margin-top: 10px;
+  font-size: 9px;
+  color: #666;
+}
+
+/* Cards */
+.step1_grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.step1_card {
+  text-align: left;
+  font-family: inherit;
+  color: var(--black);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 13px;
+  height: 55px;
+  cursor: pointer;
+}
+
+.step1_card h3 {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.step1_card p {
+  margin-top: 4px;
+  font-size: 8px;
+  color: #666;
+}
+
+.step1_card:hover {
+  border-color: var(--black);
+}
+
+.step1_card_active {
+  background: var(--lime);
+  border-color: var(--black);
+}
+
+.step1_card_active p {
+  color: var(--black);
+}
+
+.step1_card:focus-visible,
+.step1_continue:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 2px;
+}
+
+/* Continue button */
+.step1_continue {
+  margin-top: 28px;
+  height: 29px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 999px;
+  background: var(--black);
+  color: #fff;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.step1_continue:hover {
+  background: #222;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .step1_main {
+    flex-direction: column;
+  }
+
+  .step1_left,
+  .step1_right {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .step1_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step1_bar {
+    flex: 1;
+    width: auto;
+  }
+}
