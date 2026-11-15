@@ -17,3 +17,18 @@ logs/
 # Editor
 .vscode/*
 .idea/
+# Python virtual environment
+venv/
+rag-services/venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Node dependencies
+node_modules/
