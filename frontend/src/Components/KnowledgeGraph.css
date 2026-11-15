@@ -1,0 +1,142 @@
+
+/* Main Page */
+.kg-page {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111111;
+}
+
+/* Main Content */
+.kg-main {
+  flex: 1;
+  padding: 36px 44px;
+}
+
+.kg-header {
+  margin-bottom: 20px;
+}
+
+.kg-header h1 {
+  font-size: 26px;
+  margin: 0 0 8px 0;
+}
+
+.kg-header p {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+/* Graph Card */
+.kg-graph-card {
+  background: #0d0d0d;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.kg-graph {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Graph Connections */
+.kg-edge {
+  stroke: #3a3a3a;
+  stroke-width: 1.5;
+}
+
+.kg-edge.highlight {
+  stroke: #c6f135;
+  stroke-width: 2;
+}
+
+/* Graph Nodes */
+.kg-node {
+  fill: #ffffff;
+  stroke: #0d0d0d;
+}
+
+.kg-node.weak {
+  fill: #c6f135;
+}
+
+.kg-node-value {
+  font-size: 13px;
+  font-weight: 700;
+  fill: #111111;
+  text-anchor: middle;
+}
+
+.kg-node-label {
+  font-size: 10.5px;
+  fill: #cfcfcf;
+  text-anchor: middle;
+}
+
+/* Topic Details */
+.kg-detail-card {
+  background: #0d0d0d;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 22px 26px;
+}
+
+.kg-detail-card h2 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+
+.kg-detail-card p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #c9c9c9;
+  margin: 0 0 16px 0;
+  max-width: 600px;
+}
+
+/* Confidence Buttons */
+.kg-confidence-label {
+  font-size: 13px;
+  color: #cfcfcf;
+  margin-bottom: 10px;
+}
+
+.kg-confidence-row {
+  display: flex;
+  gap: 10px;
+}
+
+.kg-confidence-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid #3a3a3a;
+  background: transparent;
+  color: #e5e5e5;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kg-confidence-btn:hover {
+  border-color: #c6f135;
+}
+
+.kg-confidence-btn.active {
+  background: #c6f135;
+  border-color: #c6f135;
+  color: #0d0d0d;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+  .kg-main {
+    padding: 24px 16px;
+  }
+}

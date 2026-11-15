@@ -1,0 +1,302 @@
+
+.an-page {
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111;
+}
+
+/* Sidebar */
+.an-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #0d0d0d;
+  color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+}
+
+.an-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  margin-bottom: 28px;
+  padding-left: 4px;
+}
+
+.an-logo-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c6f135;
+}
+
+/* Navigation */
+.an-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.an-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #9b9b9b;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.an-nav-item img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.an-nav-item:hover {
+  color: #e5e5e5;
+}
+
+.an-nav-item.active {
+  background: #c6f135;
+  color: #0d0d0d;
+  font-weight: 600;
+}
+
+/* User Profile */
+.an-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid #262626;
+  margin-top: 12px;
+}
+
+.an-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #c6f135;
+  color: #0d0d0d;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.an-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.an-user-sub {
+  font-size: 11px;
+  color: #8a8a8a;
+}
+
+/* Main Content */
+.an-main {
+  flex: 1;
+  padding: 36px 44px;
+}
+
+.an-header {
+  margin-bottom: 24px;
+}
+
+.an-header h1 {
+  font-size: 26px;
+  margin: 0 0 6px;
+}
+
+.an-header p {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 14px;
+}
+
+/* Cards Grid */
+.an-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.an-card {
+  border-radius: 16px;
+  padding: 24px 26px;
+}
+
+.an-card h2 {
+  font-size: 15px;
+  margin: 0 0 14px;
+}
+
+/* Dark Card */
+.an-card-dark {
+  background: #0d0d0d;
+  color: #fff;
+}
+
+.an-card-label {
+  font-size: 13px;
+  color: #b5b5b5;
+  margin-bottom: 10px;
+}
+
+.an-score {
+  font-size: 44px;
+  font-weight: 800;
+  color: #c6f135;
+  margin-bottom: 14px;
+}
+
+.an-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.an-pill {
+  background: #1c1c1c;
+  color: #e5e5e5;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 11.5px;
+}
+
+/* Highlight Card */
+.an-card-highlight {
+  background: #c6f135;
+}
+
+.an-card-highlight p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  margin: 0 0 16px;
+}
+
+.an-button {
+  display: inline-block;
+  background: #0d0d0d;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.an-button:hover {
+  opacity: 0.88;
+}
+
+/* Chart and Subject Cards */
+.an-card-muted {
+  background: #efefed;
+}
+
+.an-chart {
+  width: 100%;
+  height: auto;
+}
+
+.an-chart-line {
+  fill: none;
+  stroke: #111;
+  stroke-width: 2;
+}
+
+.an-chart-dot {
+  fill: #c6f135;
+  stroke: #111;
+  stroke-width: 1.5;
+}
+
+.an-chart-label {
+  font-size: 9px;
+  fill: #9a9a9a;
+  text-anchor: middle;
+}
+
+/* Subject Performance */
+.an-subjects {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.an-subject-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.an-bar-track {
+  width: 100%;
+  height: 7px;
+  background: #fff;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.an-bar-fill {
+  height: 100%;
+  background: #111;
+  border-radius: 999px;
+}
+
+.an-bar-fill.highlight {
+  background: #c6f135;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .an-main {
+    padding: 28px 24px;
+  }
+
+  .an-sidebar {
+    width: 190px;
+  }
+}
+
+@media (max-width: 650px) {
+  .an-page {
+    flex-direction: column;
+  }
+
+  .an-sidebar {
+    width: auto;
+  }
+
+  .an-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .an-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .an-main {
+    padding: 24px 16px;
+  }
+}

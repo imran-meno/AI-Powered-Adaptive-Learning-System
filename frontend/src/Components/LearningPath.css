@@ -1,0 +1,318 @@
+
+/* Main Page */
+.lp-page {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111111;
+}
+
+/* Main Content */
+.lp-main {
+  flex: 1;
+  min-width: 0;
+  padding: 36px 44px;
+}
+
+/* Header */
+.lp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.lp-header h1 {
+  font-size: 26px;
+  margin: 0 0 6px 0;
+}
+
+.lp-header p {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.lp-pill {
+  border: 1px solid #d9d9d9;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: #555555;
+  white-space: nowrap;
+}
+
+/* Stepper */
+.lp-stepper {
+  background: #0d0d0d;
+  border-radius: 16px;
+  padding: 30px 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.lp-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.lp-step-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.lp-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.lp-circle.done {
+  background: #c6f135;
+  color: #0d0d0d;
+}
+
+.lp-circle.current {
+  background: #0d0d0d;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+}
+
+.lp-circle.upcoming {
+  background: #1c1c1c;
+  color: #9b9b9b;
+  border: 1px solid #333333;
+}
+
+.lp-connector {
+  height: 2px;
+  flex: 1;
+  background: #333333;
+  margin: 0 4px;
+}
+
+.lp-connector.done {
+  background: #c6f135;
+}
+
+.lp-step-label {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 500;
+  text-align: center;
+}
+
+.lp-step-sub {
+  font-size: 11px;
+  color: #8a8a8a;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.lp-step-sub.current {
+  color: #c6f135;
+}
+
+/* Cards */
+.lp-cards {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+}
+
+.lp-card {
+  border-radius: 16px;
+  padding: 26px 28px;
+  min-width: 0;
+}
+
+.lp-card h2 {
+  font-size: 17px;
+  margin: 0 0 10px 0;
+}
+
+/* Highlight Card */
+.lp-card-highlight {
+  background: #c6f135;
+}
+
+.lp-card-highlight p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  margin: 0 0 18px 0;
+}
+
+.lp-button {
+  background: #0d0d0d;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lp-button:hover {
+  opacity: 0.88;
+}
+
+/* Upcoming Topics Card */
+.lp-card-muted {
+  background: #efefed;
+}
+
+.lp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.lp-list-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid #b5b5b5;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.lp-list-dot.active {
+  background: #c6f135;
+  border-color: #c6f135;
+}
+
+.lp-list-title {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.lp-list-sub {
+  font-size: 12px;
+  color: #777777;
+  margin-top: 2px;
+}
+
+
+/* =================================
+   TABLET RESPONSIVENESS
+================================= */
+
+@media (max-width: 1000px) {
+
+  .lp-main {
+    padding: 28px 24px;
+  }
+
+  .lp-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-stepper {
+    padding: 24px 14px;
+  }
+
+  .lp-step-label {
+    font-size: 11px;
+  }
+
+}
+
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 650px) {
+
+  .lp-page {
+    flex-direction: column;
+  }
+
+  .lp-main {
+    padding: 24px 16px;
+  }
+
+  .lp-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lp-header h1 {
+    font-size: 22px;
+  }
+
+  .lp-pill {
+    font-size: 11px;
+  }
+
+  /* Allow stepper to scroll horizontally */
+  .lp-stepper {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 24px 16px;
+    gap: 0;
+  }
+
+  .lp-step {
+    flex: 0 0 130px;
+  }
+
+  .lp-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 11px;
+  }
+
+  .lp-step-label {
+    font-size: 12px;
+  }
+
+  .lp-step-sub {
+    font-size: 10px;
+  }
+
+  .lp-card {
+    padding: 22px 20px;
+  }
+
+  .lp-card h2 {
+    font-size: 16px;
+  }
+
+  .lp-card-highlight p {
+    font-size: 13px;
+  }
+
+  .lp-button {
+    width: 100%;
+  }
+
+}

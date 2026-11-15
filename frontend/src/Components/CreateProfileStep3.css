@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap');
+
+.step3_main {
+  --lime: #c6f432;
+  --black: #0a0a0a;
+  --line: #e3e3df;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--black);
+}
+
+.step3_main *,
+.step3_main *::before,
+.step3_main *::after {
+  box-sizing: border-box;
+}
+
+.step3_main h1,
+.step3_main h2,
+.step3_main p,
+.step3_main ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Left panel ---------- */
+.step3_left {
+  background-color: var(--black);
+  color: #fff;
+  width: 30%;
+  min-height: 100vh;
+  padding: 32px 30px;
+}
+
+.step3_logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step3_dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+
+.step3_logo p {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.step3_left h2 {
+  margin-top: 22px;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.step3_steps {
+  list-style: none;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step3_steps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: #b5b5b5;
+}
+
+.step3_steps li span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.2px solid #4a4a4a;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* finished step (lime circle with tick) */
+.step3_steps .step3_step_done span {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: var(--black);
+  font-size: 10px;
+}
+
+/* current step (white circle) */
+.step3_steps .step3_step_active {
+  color: #fff;
+  font-weight: 700;
+}
+
+.step3_steps .step3_step_active span {
+  background: #fff;
+  border-color: #fff;
+  color: var(--black);
+}
+
+/* ---------- Right panel ---------- */
+.step3_right {
+  width: 70%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+.step3_content {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Progress bar */
+.step3_progress {
+  display: flex;
+  gap: 4px;
+}
+
+.step3_bar {
+  width: 41px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.step3_bar_done {
+  background: var(--black);
+}
+
+.step3_count {
+  margin-top: 12px;
+  font-size: 9px;
+  font-weight: 500;
+  color: #555;
+}
+
+.step3_content h1 {
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.step3_sub {
+  margin-top: 10px;
+  font-size: 9px;
+  color: #666;
+}
+
+/* Subject chips */
+.step3_chips {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.step3_chip {
+  height: 26px;
+  padding: 0 13px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--black);
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.step3_chip:hover {
+  border-color: var(--black);
+}
+
+.step3_chip_active {
+  background: var(--lime);
+  border-color: var(--black);
+}
+
+.step3_selected_text {
+  margin-top: 10px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+/* Buttons */
+.step3_buttons {
+  margin-top: 22px;
+  display: flex;
+  gap: 8px;
+}
+
+.step3_back,
+.step3_continue {
+  height: 29px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.step3_back {
+  background: #fff;
+  color: var(--black);
+  border: 1.2px solid var(--black);
+}
+
+.step3_back:hover {
+  background: #f1f1ee;
+}
+
+.step3_continue {
+  background: var(--black);
+  color: #fff;
+  border: 1.2px solid var(--black);
+}
+
+.step3_continue:hover {
+  background: #222;
+}
+
+.step3_chip:focus-visible,
+.step3_back:focus-visible,
+.step3_continue:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .step3_main {
+    flex-direction: column;
+  }
+
+  .step3_left,
+  .step3_right {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .step3_bar {
+    flex: 1;
+    width: auto;
+  }
+}
