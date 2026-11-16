@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap');
+
+/* ================================================
+   Shared styles for the create-profile steps.
+   Sidebar (ps_left) + page layout + cards + chips
+   ================================================ */
+
+/* page wrapper */
+.ps_main {
+  --lime: #c6f432;
+  --black: #0a0a0a;
+  --line: #e3e3df;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--black);
+}
+
+/* :where() keeps this reset at zero specificity,
+   so it never beats the margins set below */
+.ps_main *,
+.ps_main *::before,
+.ps_main *::after {
+  box-sizing: border-box;
+}
+
+.ps_main :where(h1, h2, h3, p, ul) {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Sidebar ---------- */
+.ps_left {
+  --lime: #c6f432;
+  --black: #0a0a0a;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  background-color: var(--black);
+  color: #fff;
+  width: 30%;
+  min-height: 100vh;
+  padding: 32px 30px;
+}
+
+.ps_left :where(h2, p, ul) {
+  margin: 0;
+  padding: 0;
+}
+
+.ps_logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ps_dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+
+.ps_logo p {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ps_left h2 {
+  margin-top: 22px;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.ps_list {
+  list-style: none;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ps_item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: #b5b5b5;
+}
+
+.ps_item span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.2px solid #4a4a4a;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* finished step */
+.ps_item_done span {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: var(--black);
+  font-size: 10px;
+}
+
+/* current step */
+.ps_item_active {
+  color: #fff;
+  font-weight: 700;
+}
+
+.ps_item_active span {
+  background: #fff;
+  border-color: #fff;
+  color: var(--black);
+}
+
+/* ---------- Right side ---------- */
+.ps_right {
+  width: 70%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+.ps_content {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* progress bars */
+.ps_progress {
+  display: flex;
+  gap: 4px;
+}
+
+.ps_bar {
+  width: 41px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.ps_bar_done {
+  background: var(--black);
+}
+
+.ps_count {
+  margin-top: 12px;
+  font-size: 9px;
+  font-weight: 500;
+  color: #555;
+}
+
+.ps_title {
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.ps_sub {
+  margin-top: 10px;
+  font-size: 9px;
+  color: #666;
+}
+
+/* ---------- Cards ---------- */
+.ps_grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ps_card {
+  text-align: left;
+  font-family: inherit;
+  color: var(--black);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 13px;
+  height: 55px;
+  cursor: pointer;
+}
+
+.ps_card h3 {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ps_card p {
+  margin-top: 4px;
+  font-size: 8px;
+  color: #666;
+}
+
+.ps_card:hover {
+  border-color: var(--black);
+}
+
+.ps_card_active {
+  background: var(--lime);
+  border-color: var(--black);
+}
+
+.ps_card_active p {
+  color: var(--black);
+}
+
+/* ---------- Chips ---------- */
+.ps_chips {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ps_chip {
+  height: 26px;
+  padding: 0 13px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--black);
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps_chip:hover {
+  border-color: var(--black);
+}
+
+.ps_chip_active {
+  background: var(--lime);
+  border-color: var(--black);
+}
+
+.ps_selected_text {
+  margin-top: 12px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+/* ---------- Buttons ---------- */
+.ps_buttons {
+  margin-top: 28px;
+  display: flex;
+  gap: 8px;
+}
+
+.ps_back,
+.ps_continue {
+  height: 29px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps_back {
+  background: #fff;
+  color: var(--black);
+  border: 1.2px solid var(--black);
+}
+
+.ps_back:hover {
+  background: #f1f1ee;
+}
+
+.ps_continue {
+  background: var(--black);
+  color: #fff;
+  border: 1.2px solid var(--black);
+}
+
+.ps_continue:hover {
+  background: #222;
+}
+
+.ps_card:focus-visible,
+.ps_chip:focus-visible,
+.ps_back:focus-visible,
+.ps_continue:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .ps_main {
+    flex-direction: column;
+  }
+
+  .ps_left,
+  .ps_right {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .ps_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ps_bar {
+    flex: 1;
+    width: auto;
+  }
+}
+
+/* ================================================
+   Extra styles for steps 4 to 7
+   ================================================ */
+
+/* one card per row (step 7) */
+.ps_grid_one {
+  grid-template-columns: 1fr;
+}
+
+/* small label above a field */
+.ps_label {
+  display: block;
+  margin-top: 14px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.ps_hint {
+  margin-top: 10px;
+  font-size: 8px;
+  color: #666;
+}
+
+.ps_error {
+  margin-top: 12px;
+  color: #b42318;
+  font-size: 10px;
+}
+
+.ps_retry {
+  margin-left: 8px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Step 4: slider, days, date ---------- */
+.ps_slider_row {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.ps_slider {
+  width: 100%;
+  margin: 8px 0 0;
+  accent-color: var(--black);
+  cursor: pointer;
+}
+
+.ps_days {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.ps_day_group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ps_day {
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--black);
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps_day:hover {
+  border-color: var(--black);
+}
+
+.ps_day_active {
+  background: var(--lime);
+  border-color: var(--black);
+}
+
+.ps_date_wrap {
+  position: relative;
+  margin-top: 6px;
+}
+
+.ps_date {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  border: 1.2px solid var(--black);
+  border-radius: 9px;
+  padding: 0 12px;
+  font-family: inherit;
+  font-size: 10px;
+  color: var(--black);
+  background: #fff;
+  outline: none;
+}
+
+/* the whole box opens the calendar */
+.ps_date::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ps_date_text {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8px;
+  color: #555;
+  pointer-events: none;
+}
+
+/* ---------- Step 5: topic groups ---------- */
+.ps_group_title {
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-size: 8px;
+  color: #555;
+}
+
+.ps_chips_row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- Step 6: marks inputs ---------- */
+.ps_percent_wrap {
+  position: relative;
+  margin-top: 6px;
+}
+
+.ps_percent {
+  width: 100%;
+  height: 32px;
+  border: 1.2px solid var(--black);
+  border-radius: 9px;
+  padding: 0 36px 0 12px;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--black);
+  background: #fff;
+  outline: none;
+  -moz-appearance: textfield;
+}
+
+.ps_percent::placeholder {
+  font-weight: 400;
+  color: #777;
+}
+
+.ps_percent::-webkit-outer-spin-button,
+.ps_percent::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ps_percent_sign {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8px;
+  color: #555;
+}
+
+.ps_date:focus-visible,
+.ps_percent:focus-visible {
+  box-shadow: 0 0 0 3px var(--lime);
+}
+
+/* ---------- Buttons row with a "Skip for now" link ---------- */
+.ps_buttons {
+  align-items: center;
+}
+
+.ps_skip {
+  margin-left: 6px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 8px;
+  color: #555;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ps_skip:hover {
+  color: var(--black);
+}

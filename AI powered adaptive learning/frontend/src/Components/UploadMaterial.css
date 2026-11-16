@@ -1,0 +1,285 @@
+
+.um-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f8f6;
+  color: #111;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.um-main {
+  flex: 1;
+  min-width: 0;
+  padding: 38px 44px;
+}
+
+.um-header {
+  margin-bottom: 28px;
+}
+
+.um-header h1 {
+  font-size: 27px;
+  margin: 0 0 8px;
+}
+
+.um-header p {
+  color: #777;
+  font-size: 14px;
+  margin: 0;
+}
+
+.um-content {
+  max-width: 850px;
+}
+
+.um-card {
+  background: #fff;
+  border: 1px solid #e8e8e5;
+  border-radius: 14px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.um-card h2 {
+  font-size: 17px;
+  margin: 0 0 7px;
+}
+
+.um-description {
+  color: #888;
+  font-size: 13px;
+  margin: 0 0 22px;
+}
+
+.um-dropzone {
+  border: 2px dashed #d6d6d2;
+  border-radius: 12px;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  transition: 0.2s;
+}
+
+.um-dropzone.dragging {
+  border-color: #9bc51a;
+  background: #f7fbe9;
+}
+
+.um-upload-icon {
+  width: 48px;
+  height: 48px;
+  background: #f0f5df;
+  color: #607d0a;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.um-dropzone h3 {
+  font-size: 15px;
+  margin: 0 0 7px;
+}
+
+.um-dropzone p {
+  color: #888;
+  font-size: 12px;
+  margin: 0 0 16px;
+}
+
+.um-browse-btn {
+  background: #c6f135;
+  color: #0d0d0d;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.um-browse-btn:hover,
+.um-submit-btn:hover {
+  background: #b6e326;
+}
+
+.um-file-hint {
+  color: #999;
+  font-size: 11px;
+  margin-top: 12px;
+}
+
+.um-selected-file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin-top: 16px;
+  background: #f8f8f6;
+  border: 1px solid #e8e8e5;
+  border-radius: 10px;
+}
+
+.um-file-icon {
+  width: 40px;
+  height: 42px;
+  border-radius: 8px;
+  background: #fee9e7;
+  color: #c53c32;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.um-file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.um-file-info h4 {
+  font-size: 13px;
+  margin: 0 0 4px;
+  overflow-wrap: anywhere;
+}
+
+.um-file-info p {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+}
+
+.um-remove-btn {
+  background: transparent;
+  border: none;
+  color: #d04438;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.um-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 18px;
+}
+
+.um-form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+}
+
+.um-form-group input,
+.um-form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #dededb;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  color: #222;
+}
+
+.um-form-group input:focus,
+.um-form-group select:focus {
+  outline: none;
+  border-color: #a9d72b;
+}
+
+.um-form-row {
+  display: flex;
+  gap: 18px;
+}
+
+.um-info-card {
+  display: flex;
+  gap: 14px;
+  background: #f0f5df;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.um-info-icon {
+  color: #647f13;
+  font-size: 24px;
+}
+
+.um-info-card h3 {
+  font-size: 14px;
+  margin: 0 0 7px;
+}
+
+.um-info-card p {
+  color: #626b4d;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.um-submit-area {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+
+.um-submit-btn {
+  background: #c6f135;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 9px;
+  padding: 13px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .um-main {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .um-page {
+    flex-direction: column;
+  }
+
+  .um-main {
+    padding: 24px 16px;
+  }
+
+  .um-header h1 {
+    font-size: 23px;
+  }
+
+  .um-card {
+    padding: 18px;
+  }
+
+  .um-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .um-submit-area {
+    justify-content: stretch;
+  }
+
+  .um-submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

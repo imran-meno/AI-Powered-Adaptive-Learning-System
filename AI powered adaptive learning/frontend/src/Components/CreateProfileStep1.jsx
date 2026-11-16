@@ -1,10 +1,17 @@
 import { useState } from 'react'
 import './CreateProfileStep1.css'
 import { useNavigate } from 'react-router-dom'
+import useStudyProfile from '../hooks/useStudyProfile'
+import ProfileStepFeedback from './ProfileStepFeedback'
 
 function CreateProfileStep1() {
-  const [selected, setSelected] = useState('Intermediate Pre-Engineering')
-  const navigate= useNavigate()
+  const [selection, setSelection] = useState(null)
+  const navigate = useNavigate()
+  const { profile, isLoading, isSaving, loadError, error, saveProfile, retryLoad } =
+    useStudyProfile()
+
+  const selected = selection ?? profile?.exam ?? 'Intermediate Pre-Engineering'
+
   // gives the active class to the selected card
   function getCardClass(name) {
     if (selected === name) {
@@ -13,11 +20,13 @@ function CreateProfileStep1() {
     return 'step1_card'
   }
 
-  function handleContinue() {
-    // TODO: save the exam and go to the next step
-    navigate('/create-profile2')
-    console.log(selected)
+  async function handleContinue() {
+    if (await saveProfile({ exam: selected })) {
+      navigate('/create-profile2')
+    }
   }
+
+  const disabled = isLoading || isSaving || Boolean(loadError)
 
   return (
     <div className="step1_main">
@@ -56,7 +65,11 @@ function CreateProfileStep1() {
           </li>
           <li>
             <span>6</span>
-            Current marks
+           Target marks
+          </li>
+          <li>
+            <span>7</span>
+            Learning style
           </li>
         </ul>
       </div>
@@ -70,9 +83,10 @@ function CreateProfileStep1() {
             <div className="step1_bar"></div>
             <div className="step1_bar"></div>
             <div className="step1_bar"></div>
+            <div className="step1_bar"></div>
           </div>
 
-          <p className="step1_count">Step 1 of 6</p>
+          <p className="step1_count">Step 1 of 7</p>
           <h1>Which exam are you preparing for?</h1>
           <p className="step1_sub">We use this to pick the right syllabus and past papers for you.</p>
 
@@ -80,7 +94,8 @@ function CreateProfileStep1() {
             <button
               type="button"
               className={getCardClass('Matric')}
-              onClick={() => setSelected('Matric')}
+              disabled={disabled}
+              onClick={() => setSelection('Matric')}
             >
               <h3>Matric</h3>
               <p>Sindh or Punjab Board</p>
@@ -89,7 +104,8 @@ function CreateProfileStep1() {
             <button
               type="button"
               className={getCardClass('Intermediate Pre-Medical')}
-              onClick={() => setSelected('Intermediate Pre-Medical')}
+              disabled={disabled}
+              onClick={() => setSelection('Intermediate Pre-Medical')}
             >
               <h3>Intermediate Pre-Medical</h3>
               <p>Part 1 and 2</p>
@@ -98,7 +114,8 @@ function CreateProfileStep1() {
             <button
               type="button"
               className={getCardClass('Intermediate Pre-Engineering')}
-              onClick={() => setSelected('Intermediate Pre-Engineering')}
+              disabled={disabled}
+              onClick={() => setSelection('Intermediate Pre-Engineering')}
             >
               <h3>Intermediate Pre-Engineering</h3>
               <p>Part 1 and 2</p>
@@ -107,7 +124,8 @@ function CreateProfileStep1() {
             <button
               type="button"
               className={getCardClass('O and A Levels')}
-              onClick={() => setSelected('O and A Levels')}
+              disabled={disabled}
+              onClick={() => setSelection('O and A Levels')}
             >
               <h3>O and A Levels</h3>
               <p>Cambridge or Edexcel</p>
@@ -116,7 +134,8 @@ function CreateProfileStep1() {
             <button
               type="button"
               className={getCardClass('MDCAT')}
-              onClick={() => setSelected('MDCAT')}
+              disabled={disabled}
+              onClick={() => setSelection('MDCAT')}
             >
               <h3>MDCAT</h3>
               <p>Medical entry test</p>
@@ -125,14 +144,27 @@ function CreateProfileStep1() {
             <button
               type="button"
               className={getCardClass('ECAT')}
-              onClick={() => setSelected('ECAT')}
+              disabled={disabled}
+              onClick={() => setSelection('ECAT')}
             >
               <h3>ECAT</h3>
               <p>Engineering entry test</p>
             </button>
           </div>
 
-          <button type="button" className="step1_continue" onClick={handleContinue}>
+          <ProfileStepFeedback
+            isLoading={isLoading}
+            loadError={loadError}
+            error={error}
+            onRetry={retryLoad}
+          />
+
+          <button
+            type="button"
+            className="step1_continue"
+            disabled={disabled}
+            onClick={handleContinue}
+          >
             Continue
           </button>
         </div>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './CreateProfile.css'
+import axios from 'axios'
 
 function CreateProfile() {
   const [name, setName] = useState('')
@@ -27,17 +28,36 @@ function CreateProfile() {
     confirmBtn = 'Hide'
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
+  async function handleSubmit(e) {
+  e.preventDefault()
 
-    if (password !== confirm) {
-      alert('Passwords do not match')
-      return
-    }
-
-    // TODO: connect to your signup API
-    console.log(name, email, password)
+  if (password !== confirm) {
+    alert('Passwords do not match')
+    return
   }
+
+  try {
+    const response = await axios.post(
+      'http://localhost:3000/api/createaccount',
+      {
+        name,
+        email,
+        password
+      }
+    )
+
+    alert(response.data.message)
+
+    setName('')
+    setEmail('')
+    setPassword('')
+    setConfirm('')
+    setAgree(false)
+
+  } catch (error) {
+    alert(error.response?.data?.message || 'Account creation failed')
+  }
+}
 
   return (
     <div className="main_div">

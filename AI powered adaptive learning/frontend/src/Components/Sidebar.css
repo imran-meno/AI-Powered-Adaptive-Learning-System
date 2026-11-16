@@ -1,0 +1,163 @@
+.an-sidebar,
+.an-sidebar * {
+  box-sizing: border-box;
+}
+
+/* Fixed size and fixed position, so the sidebar never moves or
+   changes when you go from one page to another */
+.an-sidebar {
+  width: 190px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  flex-shrink: 0;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 12px 16px;
+  overflow-y: auto;
+}
+
+/* ---------- Logo ---------- */
+.an-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 22px;
+  padding-left: 8px;
+}
+
+.an-logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c6f432;
+}
+
+/* ---------- Menu ---------- */
+.an-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.an-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #b5b5b5;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* all icons get the same grey colour, whatever colour the png is */
+.an-nav-item img {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: brightness(0) invert(0.72);
+}
+
+.an-nav-item:hover {
+  color: #ffffff;
+}
+
+.an-nav-item:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* Active page: only colours change, the size stays the same */
+.an-nav-item.active {
+  background: #c6f432;
+  color: #0a0a0a;
+  font-weight: 700;
+}
+
+.an-nav-item.active img {
+  filter: brightness(0);
+}
+
+.an-nav-item:focus-visible {
+  outline: 2px solid #c6f432;
+  outline-offset: 2px;
+}
+
+/* ---------- User card ---------- */
+.an-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 10px;
+  border: 1px solid #262626;
+  border-radius: 10px;
+}
+
+.an-user-avatar {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #c6f432;
+  color: #0a0a0a;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.an-user-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.an-user-sub {
+  margin-top: 1px;
+  font-size: 8px;
+  color: #8a8a8a;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .an-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 14px;
+  }
+
+  .an-logo {
+    margin-bottom: 14px;
+  }
+
+  .an-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .an-nav-item {
+    height: 30px;
+    padding: 0 10px;
+  }
+
+  .an-user {
+    margin-top: 14px;
+  }
+}

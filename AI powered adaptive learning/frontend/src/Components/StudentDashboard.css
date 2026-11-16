@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap');
+
+.dash_page {
+  --lime: #c6f432;
+  --black: #0a0a0a;
+  --cream: #f1f1ee;
+  --line: #e3e3df;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--black);
+}
+
+.dash_page *,
+.dash_page *::before,
+.dash_page *::after {
+  box-sizing: border-box;
+}
+
+/* zero specificity reset, so it never beats the margins below */
+.dash_page :where(h1, h2, p) {
+  margin: 0;
+}
+
+.dash_content {
+  flex: 1;
+  min-width: 0;
+  padding: 30px 28px;
+}
+
+/* ---------- Heading ---------- */
+.dash_title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.dash_sub {
+  margin-top: 10px;
+  font-size: 9px;
+  color: #666;
+}
+
+/* ---------- Rows ---------- */
+.dash_row {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* ---------- Score card ---------- */
+.dash_score {
+  background: var(--black);
+  color: #fff;
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dash_ring {
+  width: 84px;
+  height: 84px;
+  flex: none;
+  transform: rotate(-90deg);
+}
+
+.dash_ring_track {
+  fill: none;
+  stroke: #2b2b2b;
+  stroke-width: 10;
+}
+
+.dash_ring_fill {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.dash_score_big {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--lime);
+}
+
+.dash_score_label {
+  margin-top: 4px;
+  font-size: 9px;
+  color: #d8d8d8;
+}
+
+.dash_score_tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dash_tag_lime {
+  background: var(--lime);
+  color: var(--black);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.dash_tag_outline {
+  border: 1px solid #8a8a8a;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 7px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ---------- Fix this next ---------- */
+.dash_fix {
+  background: var(--lime);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.dash_fix h2 {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.dash_fix p {
+  margin-top: 8px;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+/* ---------- Cards ---------- */
+.dash_card {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 16px 18px 18px;
+}
+
+.dash_card h2 {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* ---------- Topics ---------- */
+.dash_topic {
+  margin-top: 12px;
+}
+
+.dash_topic_top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+}
+
+.dash_topic_name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.dash_topic_percent {
+  font-weight: 700;
+}
+
+.dash_progress {
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--line);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.dash_progress::-webkit-progress-bar {
+  background: var(--line);
+  border-radius: 999px;
+}
+
+.dash_progress::-webkit-progress-value {
+  background: var(--black);
+  border-radius: 999px;
+}
+
+.dash_progress::-moz-progress-bar {
+  background: var(--black);
+  border-radius: 999px;
+}
+
+.dash_progress_weak::-webkit-progress-value {
+  background: var(--lime);
+}
+
+.dash_progress_weak::-moz-progress-bar {
+  background: var(--lime);
+}
+
+/* ---------- Today's plan ---------- */
+.dash_plan_item {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.dash_plan_dot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--lime);
+  border: 1.2px solid var(--black);
+}
+
+.dash_plan_text {
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.dash_plan_time {
+  margin-top: 2px;
+  font-size: 7px;
+  color: #666;
+}
+
+/* ---------- Buttons ---------- */
+.dash_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  height: 28px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--black);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.dash_btn:hover {
+  background: #222;
+}
+
+.dash_btn_space {
+  margin-top: 18px;
+}
+
+.dash_btn:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .dash_row {
+    grid-template-columns: 1fr;
+  }
+}

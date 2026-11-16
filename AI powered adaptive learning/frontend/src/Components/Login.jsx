@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+
+  const navigate=useNavigate()
 
   // password field type and button text
   let passwordType = 'password'
@@ -15,12 +19,33 @@ function Login() {
     passwordBtn = 'Hide'
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
+ 
+async function handleLogin(e) {
+    e.preventDefault();
 
-    // TODO: connect to your login API
-    console.log(email, password)
-  }
+    try {
+        const response = await axios.post(
+            'http://localhost:3000/api/login',
+            {
+                email,
+                password
+            }
+        );
+
+        sessionStorage.setItem('authToken', response.data.token);
+        sessionStorage.setItem('currentUser', JSON.stringify(response.data.user));
+        alert(response.data.message);
+
+        navigate('/dashboard')
+
+
+    } catch (error) {
+        alert(
+            error.response?.data?.message || 'Login failed'
+        );
+    }
+}
+
 
   return (
     <div className="login_main">
@@ -46,7 +71,7 @@ function Login() {
       </div>
 
       <div className="login_right">
-        <form className="login_form" onSubmit={handleSubmit}>
+        <form className="login_form" onSubmit={handleLogin}>
           <h1>Log in</h1>
           <p className="login_sub">Welcome back. Enter your details to continue.</p>
 

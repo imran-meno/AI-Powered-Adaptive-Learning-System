@@ -1,19 +1,27 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './CreateProfileStep3.css'
+import useStudyProfile from '../hooks/useStudyProfile'
+import ProfileStepFeedback from './ProfileStepFeedback'
 
 function CreateProfileStep3() {
-  const [selected, setSelected] = useState(['Physics', 'Chemistry', 'Maths'])
+  const [selection, setSelection] = useState(null)
+  const [formError, setFormError] = useState('')
   const navigate = useNavigate()
+  const { profile, isLoading, isSaving, loadError, error, saveProfile, retryLoad } =
+    useStudyProfile()
+
+  const selected = selection ?? profile?.subjects ?? ['Physics', 'Chemistry', 'Maths']
 
   // click on a subject: remove it if already selected, add it if not
   function toggleSubject(name) {
+    setFormError('')
     if (selected.includes(name)) {
       const newList = selected.filter((item) => item !== name)
-      setSelected(newList)
+      setSelection(newList)
     } else {
       const newList = [...selected, name]
-      setSelected(newList)
+      setSelection(newList)
     }
   }
 
@@ -35,11 +43,17 @@ function CreateProfileStep3() {
     navigate('/create-profile2')
   }
 
-  function handleContinue() {
-    // TODO: save the subjects
-    console.log(selected)
-    navigate('/create-profile4')
+  async function handleContinue() {
+    if (selected.length === 0) {
+      setFormError('Select at least one subject before continuing.')
+      return
+    }
+    if (await saveProfile({ subjects: selected })) {
+      navigate('/create-profile4')
+    }
   }
+
+  const disabled = isLoading || isSaving || Boolean(loadError)
 
   return (
     <div className="step3_main">
@@ -78,7 +92,11 @@ function CreateProfileStep3() {
           </li>
           <li>
             <span>6</span>
-            Current marks
+            Target marks
+          </li>
+          <li>
+            <span>7</span>
+            Learning style
           </li>
         </ul>
       </div>
@@ -92,9 +110,10 @@ function CreateProfileStep3() {
             <div className="step3_bar"></div>
             <div className="step3_bar"></div>
             <div className="step3_bar"></div>
+            <div className="step3_bar"></div>
           </div>
 
-          <p className="step3_count">Step 3 of 6</p>
+          <p className="step3_count">Step 3 of 7</p>
           <h1>Which subjects do you study?</h1>
           <p className="step3_sub">Pick all that apply. You can change this later in Settings.</p>
 
@@ -102,6 +121,7 @@ function CreateProfileStep3() {
             <button
               type="button"
               className={getChipClass('Physics')}
+              disabled={disabled}
               onClick={() => toggleSubject('Physics')}
             >
               Physics
@@ -109,6 +129,7 @@ function CreateProfileStep3() {
             <button
               type="button"
               className={getChipClass('Chemistry')}
+              disabled={disabled}
               onClick={() => toggleSubject('Chemistry')}
             >
               Chemistry
@@ -116,6 +137,7 @@ function CreateProfileStep3() {
             <button
               type="button"
               className={getChipClass('Maths')}
+              disabled={disabled}
               onClick={() => toggleSubject('Maths')}
             >
               Maths
@@ -123,6 +145,7 @@ function CreateProfileStep3() {
             <button
               type="button"
               className={getChipClass('English')}
+              disabled={disabled}
               onClick={() => toggleSubject('English')}
             >
               English
@@ -130,6 +153,7 @@ function CreateProfileStep3() {
             <button
               type="button"
               className={getChipClass('Urdu')}
+              disabled={disabled}
               onClick={() => toggleSubject('Urdu')}
             >
               Urdu
@@ -137,6 +161,7 @@ function CreateProfileStep3() {
             <button
               type="button"
               className={getChipClass('Pakistan Studies')}
+              disabled={disabled}
               onClick={() => toggleSubject('Pakistan Studies')}
             >
               Pakistan Studies
@@ -144,15 +169,31 @@ function CreateProfileStep3() {
           </div>
 
           <p className="step3_selected_text">{countText}</p>
+          {formError && (
+            <p className="profile_step_feedback profile_step_feedback_error" role="alert">
+              {formError}
+            </p>
+          )}
 
           <div className="step3_buttons">
             <button type="button" className="step3_back" onClick={handleBack}>
               Back
             </button>
-            <button type="button" className="step3_continue" onClick={handleContinue}>
+            <button
+              type="button"
+              className="step3_continue"
+              disabled={disabled}
+              onClick={handleContinue}
+            >
               Continue
             </button>
           </div>
+          <ProfileStepFeedback
+            isLoading={isLoading}
+            loadError={loadError}
+            error={error}
+            onRetry={retryLoad}
+          />
         </div>
       </div>
     </div>

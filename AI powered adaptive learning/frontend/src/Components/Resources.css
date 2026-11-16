@@ -1,0 +1,198 @@
+
+/* Main Page */
+.rs-page {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #111111;
+}
+
+/* Main Content */
+.rs-main {
+  flex: 1;
+  min-width: 0;
+  padding: 36px 44px;
+}
+
+/* Header */
+.rs-header {
+  margin-bottom: 20px;
+}
+
+.rs-header h1 {
+  font-size: 26px;
+  margin: 0 0 8px 0;
+}
+
+.rs-header p {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+/* Filters */
+.rs-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.rs-filter-btn {
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1.5px solid #e0e0e0;
+  background: #ffffff;
+  color: #333333;
+  cursor: pointer;
+}
+
+.rs-filter-btn:hover {
+  border-color: #0d0d0d;
+}
+
+.rs-filter-btn.active {
+  background: #0d0d0d;
+  border-color: #0d0d0d;
+  color: #ffffff;
+}
+
+/* Resources Grid */
+.rs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.rs-card {
+  background: #efefed;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Resource Tag */
+.rs-tag {
+  align-self: flex-start;
+  background: #0d0d0d;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 10.5px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Resource Details */
+.rs-card h2 {
+  font-size: 14.5px;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.rs-sub {
+  font-size: 12px;
+  color: #777777;
+  margin-bottom: 10px;
+}
+
+.rs-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #555555;
+  margin-bottom: 14px;
+}
+
+.rs-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c6f135;
+  flex-shrink: 0;
+}
+
+/* Open Button */
+.rs-open {
+  align-self: flex-start;
+  background: #0d0d0d;
+  color: #ffffff;
+  border: none;
+  border-radius: 9px;
+  padding: 8px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.rs-open:hover {
+  opacity: 0.88;
+}
+
+
+/* =================================
+   TABLET RESPONSIVENESS
+================================= */
+
+@media (max-width: 1000px) {
+
+  .rs-main {
+    padding: 28px 24px;
+  }
+
+  .rs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 650px) {
+
+  .rs-page {
+    flex-direction: column;
+  }
+
+  .rs-main {
+    padding: 24px 16px;
+  }
+
+  .rs-header h1 {
+    font-size: 22px;
+  }
+
+  .rs-filters {
+    gap: 7px;
+  }
+
+  .rs-filter-btn {
+    padding: 8px 12px;
+    font-size: 11.5px;
+  }
+
+  .rs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rs-card {
+    padding: 18px;
+  }
+
+  .rs-open {
+    width: 100%;
+  }
+
+}

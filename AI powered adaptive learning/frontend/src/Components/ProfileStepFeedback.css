@@ -1,0 +1,20 @@
+.profile_step_feedback {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #555;
+}
+
+.profile_step_feedback_error {
+  color: #b42318;
+}
+
+.profile_step_feedback button {
+  margin-left: 6px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}

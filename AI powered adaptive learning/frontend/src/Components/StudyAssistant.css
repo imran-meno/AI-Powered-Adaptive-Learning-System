@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap');
+
+.chat_page {
+  --lime: #c6f432;
+  --black: #0a0a0a;
+  --cream: #f1f1ee;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--black);
+}
+
+.chat_page *,
+.chat_page *::before,
+.chat_page *::after {
+  box-sizing: border-box;
+}
+
+.chat_page :where(h1, p) {
+  margin: 0;
+}
+
+.chat_content {
+  flex: 1;
+  min-width: 0;
+  padding: 30px 28px;
+  max-width: 760px;
+}
+
+/* ---------- Heading ---------- */
+.chat_title {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.chat_sub {
+  margin-top: 10px;
+  max-width: 300px;
+  font-size: 9px;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* ---------- Suggested questions ---------- */
+.chat_suggest {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chat_pill {
+  height: 22px;
+  padding: 0 11px;
+  border: 1.2px solid var(--black);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--black);
+  font-family: inherit;
+  font-size: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chat_pill:hover {
+  background: var(--cream);
+}
+
+/* ---------- Messages ---------- */
+.chat_messages {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat_row {
+  display: flex;
+}
+
+.chat_row_user {
+  justify-content: flex-end;
+}
+
+.chat_user {
+  background: var(--black);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 8.5px;
+  font-weight: 500;
+}
+
+.chat_bot {
+  max-width: 310px;
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.chat_bot p {
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.chat_bot .chat_source {
+  margin-top: 8px;
+  font-size: 7px;
+  color: #555;
+}
+
+.chat_source span {
+  background: var(--lime);
+  color: var(--black);
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-weight: 700;
+}
+
+/* ---------- Input ---------- */
+.chat_form {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.chat_form input {
+  flex: 1;
+  height: 28px;
+  padding: 0 14px;
+  border: 1.2px solid var(--black);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 8.5px;
+  color: var(--black);
+  background: #fff;
+  outline: none;
+}
+
+.chat_form input::placeholder {
+  color: #666;
+}
+
+.chat_form input:focus-visible {
+  box-shadow: 0 0 0 3px var(--lime);
+}
+
+.chat_form button {
+  height: 28px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 999px;
+  background: var(--black);
+  color: #fff;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chat_form button:hover {
+  background: #222;
+}
+
+.chat_pill:focus-visible,
+.chat_form button:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 2px;
+}
